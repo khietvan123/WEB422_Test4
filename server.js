@@ -115,7 +115,7 @@ app.post('/api/login', (req, res) => {
     };
 
     const token = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
-    return res.json({message: `Login successful, welcome ${payload.fullName}.`, token });
+    return res.json({message: `Login successful, welcome ${payload.fullName} (${payload.role})`, token });
 });
 
 app.get('/api/movies', requireAuth, (req, res, next) => {
